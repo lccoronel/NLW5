@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, SafeAreaView, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import waterdropImg from '../../assets/watering.png';
 import Button from '../../Components/Button';
@@ -7,6 +8,8 @@ import Button from '../../Components/Button';
 import styles from './styles';
 
 const Welcome: React.FC = () => {
+  const { navigate } = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
@@ -18,7 +21,7 @@ const Welcome: React.FC = () => {
         sempre que precisar.
       </Text>
 
-      <Button title=">" />
+      <Button title="Começar" onPress={() => navigate('UserIndentification')} />
     </SafeAreaView>
   );
 };

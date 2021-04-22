@@ -6,7 +6,7 @@ import {
 } from '@expo-google-fonts/jost';
 import AppLoading from 'expo-app-loading';
 
-import UserIndentification from './src/pages/UserIndentification';
+import Routes from './src/routes';
 
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({ Jost_400Regular, Jost_600SemiBold });
@@ -15,7 +15,7 @@ const App: React.FC = () => {
     return <AppLoading />;
   }
 
-  return <UserIndentification />;
+  return <Routes />;
 };
 
 export default App;
