@@ -41,34 +41,32 @@ const UserIndentification: React.FC = () => {
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.content}>
-            <View style={styles.form}>
-              <View style={{ alignItems: 'center' }}>
-                <Text style={styles.emoji}>{isFilled ? '😄' : '😀'}</Text>
-                <Text style={styles.title}>
-                  Como podemos {'\n'} chamar você?
-                </Text>
-              </View>
-
-              <TextInput
-                style={[
-                  styles.input,
-                  (isFocused || isFilled) && { borderColor: colors.green },
-                ]}
-                placeholder="Digite um nome"
-                onBlur={handleInputBlur}
-                onFocus={handleInputFocus}
-                onChangeText={handleInputChange}
-              />
-
-              <Button
-                title="Confirmar"
-                onPress={() => navigate('Confirmation')}
-              />
+        {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
+        <View style={styles.content}>
+          <View style={styles.form}>
+            <View style={{ alignItems: 'center' }}>
+              <Text style={styles.emoji}>{isFilled ? '😄' : '😀'}</Text>
+              <Text style={styles.title}>Como podemos {'\n'} chamar você?</Text>
             </View>
+
+            <TextInput
+              style={[
+                styles.input,
+                (isFocused || isFilled) && { borderColor: colors.green },
+              ]}
+              placeholder="Digite um nome"
+              onBlur={handleInputBlur}
+              onFocus={handleInputFocus}
+              onChangeText={handleInputChange}
+            />
+
+            <Button
+              title="Confirmar"
+              onPress={() => navigate('Confirmation')}
+            />
           </View>
-        </TouchableWithoutFeedback>
+        </View>
+        {/* </TouchableWithoutFeedback> */}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

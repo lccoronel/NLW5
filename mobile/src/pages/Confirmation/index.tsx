@@ -1,10 +1,12 @@
 import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
-import Button from '../../Components/Button';
+import { useNavigation } from '@react-navigation/native';
 
+import Button from '../../Components/Button';
 import styles from './styles';
 
 const Confirmation: React.FC = () => {
+  const { navigate } = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -18,7 +20,7 @@ const Confirmation: React.FC = () => {
       </View>
 
       <View style={styles.footer}>
-        <Button title="Começar" />
+        <Button title="Começar" onPress={() => navigate('PlantSelection')} />
       </View>
     </SafeAreaView>
   );
