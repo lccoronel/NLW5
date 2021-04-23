@@ -6,14 +6,19 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Platform,
+  Keyboard,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Button from '../../Components/Button';
 import colors from '../../styles/colors';
 
 import styles from './styles';
 
 const UserIndentification: React.FC = () => {
+  const { navigate } = useNavigation();
+
   const [isFocused, setFocused] = useState(false);
   const [isFilled, setFilled] = useState(false);
   const [name, setName] = useState<string>('');
@@ -36,6 +41,7 @@ const UserIndentification: React.FC = () => {
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
+        {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
         <View style={styles.content}>
           <View style={styles.form}>
             <View style={{ alignItems: 'center' }}>
@@ -54,9 +60,13 @@ const UserIndentification: React.FC = () => {
               onChangeText={handleInputChange}
             />
 
-            <Button title="Confirmar" />
+            <Button
+              title="Confirmar"
+              onPress={() => navigate('Confirmation')}
+            />
           </View>
         </View>
+        {/* </TouchableWithoutFeedback> */}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
