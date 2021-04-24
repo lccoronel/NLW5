@@ -1,11 +1,28 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, View, FlatList } from 'react-native';
+
 import EnviromentButton from '../../Components/EnviromentButton';
 import Header from '../../Components/Header';
+import api from '../../services/api';
 
 import styles from './styles';
 
+interface EnviromentsProps {
+  key: string;
+  title: string;
+}
+
 const PlantSelection: React.FC = () => {
+  const [enviroments, setEnviroments] = useState<EnviromentsProps[]>([]);
+
+  useEffect(() => {
+    api
+      .get('plants_environments')
+      .then(response =>
+        setEnviroments([{ key: 'all', title: 'Todos' }, ...response.data]),
+      );
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -15,7 +32,28 @@ const PlantSelection: React.FC = () => {
         <Text style={styles.subTitle}>Você quer colocar sua planta?</Text>
       </View>
 
-      <EnviromentButton title="teste" active />
+      <View>
+        <FlatList
+          horizontal
+          contentContainerStyle={styles.enviromentList}
+          showsHorizontalScrollIndicator={false}
+          data={enviroments}
+          renderItem={({ item: enviroment }) => (
+            <EnviromentButton title={enviroment.title} />
+          )}
+        />
+      </View>
+
+      <View style={styles.plants}>
+        <FlatList
+          contentContainerStyle={styles.enviromentList}
+          showsHorizontalScrollIndicator={false}
+          data={enviroments}
+          renderItem={({ item: enviroment }) => (
+            <EnviromentButton title={enviroment.title} />
+          )}
+        />
+      </View>
     </View>
   );
 };

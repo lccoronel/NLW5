@@ -5,28 +5,19 @@ import fonts from '../../styles/fonts';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    maxWidth: '45%',
     backgroundColor: colors.shape,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    borderRadius: 20,
+    paddingVertical: 10,
     alignItems: 'center',
-    width: 76,
-    height: 40,
-    borderRadius: 12,
-    marginRight: 5,
-  },
-
-  containerActive: {
-    backgroundColor: colors.green_light,
+    margin: 10,
   },
 
   text: {
-    color: colors.heading,
-    fontFamily: fonts.text,
-  },
-
-  textActive: {
-    fontFamily: fonts.heading,
     color: colors.green_dark,
+    marginVertical: 16,
+    fontFamily: fonts.text,
   },
 });
 
