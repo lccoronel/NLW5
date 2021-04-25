@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     width: 76,
     height: 40,
     borderRadius: 12,
-    marginRight: 5,
+    marginHorizontal: 5,
   },
 
   containerActive: {
