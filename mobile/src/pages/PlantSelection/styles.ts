@@ -27,6 +27,20 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: colors.heading,
   },
+
+  enviromentList: {
+    height: 40,
+    justifyContent: 'center',
+    paddingBottom: 5,
+    marginLeft: 32,
+    marginVertical: 32,
+  },
+
+  plants: {
+    flex: 1,
+    paddingHorizontal: 32,
+    justifyContent: 'center',
+  },
 });
 
 export default styles;
